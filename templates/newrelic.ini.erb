@@ -23,7 +23,7 @@ extension = "newrelic.so"
 ;          disable the agent on a per-directory basis.
 ;
 ;newrelic.enabled = true
-<%- if scope['::newrelic::agent::php::newrelic_ini_enabled'] -%>
+<%- if !scope['::newrelic::agent::php::newrelic_ini_enabled'].nil? -%>
 newrelic.enabled = <%= scope['::newrelic::agent::php::newrelic_ini_enabled'] %>
 <%- end -%>
 
@@ -108,7 +108,7 @@ newrelic.loglevel = "<%= scope['::newrelic::agent::php::newrelic_ini_loglevel'] 
 ;          will be collected.
 ;
 ;newrelic.high_security = false
-<%- if scope['::newrelic::agent::php::newrelic_ini_high_security'] -%>
+<%- if !scope['::newrelic::agent::php::newrelic_ini_high_security'].nil? -%>
 newrelic.high_security = <%= scope['::newrelic::agent::php::newrelic_ini_high_security'] %>
 <%- end -%>
 
@@ -207,7 +207,7 @@ newrelic.daemon.port = "<%= scope['::newrelic::agent::php::newrelic_daemon_port'
 ;          should use a secure HTTP connection or not.
 ;
 ;newrelic.daemon.ssl = true
-<%- if scope['::newrelic::agent::php::newrelic_daemon_ssl'] -%>
+<%- if !scope['::newrelic::agent::php::newrelic_daemon_ssl'].nil? -%>
 newrelic.daemon.ssl = <%= scope['::newrelic::agent::php::newrelic_daemon_ssl'] %>
 <%- end -%>
 
@@ -327,7 +327,7 @@ newrelic.daemon.collector_host = "<%= scope['::newrelic::agent::php::newrelic_da
 ;          that are meaningful to each transaction then you can enable this.
 ;
 ;newrelic.capture_params = true
-<%- if scope['::newrelic::agent::php::newrelic_ini_capture_params'] -%>
+<%- if !scope['::newrelic::agent::php::newrelic_ini_capture_params'].nil? -%>
 newrelic.capture_params = "<%= scope['::newrelic::agent::php::newrelic_ini_capture_params'] %>"
 <%- end -%>
 
@@ -361,7 +361,7 @@ newrelic.daemon.dont_launch = <%= scope['::newrelic::agent::php::newrelic_daemon
 ;          this to be disabled regardless of any value you set for it.
 ;
 ;newrelic.error_collector.enabled = true
-<%- if scope['::newrelic::agent::php::newrelic_ini_error_collector_enabled'] -%>
+<%- if !scope['::newrelic::agent::php::newrelic_ini_error_collector_enabled'].nil? -%>
 newrelic.error_collector.enabled = <%= scope['::newrelic::agent::php::newrelic_ini_error_collector_enabled'] %>
 <%- end -%>
 
@@ -377,7 +377,7 @@ newrelic.error_collector.enabled = <%= scope['::newrelic::agent::php::newrelic_i
 ;          above and the account subscription level permits error trapping.
 ;
 ;newrelic.error_collector.record_database_errors = false
-<%- if scope['::newrelic::agent::php::newrelic_ini_error_collector_record_database_errors'] -%>
+<%- if !scope['::newrelic::agent::php::newrelic_ini_error_collector_record_database_errors'].nil? -%>
 newrelic.error_collector.record_database_errors = <%= scope['::newrelic::agent::php::newrelic_ini_error_collector_record_database_errors'] %>
 <%- end -%>
 
@@ -391,7 +391,7 @@ newrelic.error_collector.record_database_errors = <%= scope['::newrelic::agent::
 ;          priority to such errors.
 ;
 ;newrelic.error_collector.prioritize_api_errors = false
-<%- if scope['::newrelic::agent::php::newrelic_ini_error_collector_prioritize_api_errors'] -%>
+<%- if !scope['::newrelic::agent::php::newrelic_ini_error_collector_prioritize_api_errors'].nil? -%>
 newrelic.error_collector.prioritize_api_errors = <%= scope['::newrelic::agent::php::newrelic_ini_error_collector_prioritize_api_errors'] %>
 <%- end -%>
 
@@ -405,7 +405,7 @@ newrelic.error_collector.prioritize_api_errors = <%= scope['::newrelic::agent::p
 ;          in HTML output that will time the actual end-user experience.
 ;
 ;newrelic.browser_monitoring.auto_instrument = true
-<%- if scope['::newrelic::agent::php::newrelic_ini_browser_monitoring_auto_instrument'] -%>
+<%- if !scope['::newrelic::agent::php::newrelic_ini_browser_monitoring_auto_instrument'].nil? -%>
 newrelic.browser_monitoring.auto_instrument = <%= scope['::newrelic::agent::php::newrelic_ini_browser_monitoring_auto_instrument'] %>
 <%- end -%>
 
@@ -424,7 +424,7 @@ newrelic.browser_monitoring.auto_instrument = <%= scope['::newrelic::agent::php:
 ;          regardless of what you set here.
 ;
 ;newrelic.transaction_tracer.enabled = true
-<%- if scope['::newrelic::agent::php::newrelic_ini_transaction_tracer_enabled'] -%>
+<%- if !scope['::newrelic::agent::php::newrelic_ini_transaction_tracer_enabled'].nil? -%>
 newrelic.transaction_tracer.enabled = <%= scope['::newrelic::agent::php::newrelic_ini_transaction_tracer_enabled'] %>
 <%- end -%>
 
@@ -472,7 +472,7 @@ newrelic.transaction_tracer.detail = <%= scope['::newrelic::agent::php::newrelic
 ;          where the call occurred in your code.
 ;
 ;newrelic.transaction_tracer.slow_sql = true
-<%- if scope['::newrelic::agent::php::newrelic_ini_transaction_tracer_slow_sql'] -%>
+<%- if !scope['::newrelic::agent::php::newrelic_ini_transaction_tracer_slow_sql'].nil? -%>
 newrelic.transaction_tracer.slow_sql = <%= scope['::newrelic::agent::php::newrelic_ini_transaction_tracer_slow_sql'] %>
 <%- end -%>
 
@@ -499,7 +499,7 @@ newrelic.transaction_tracer.stack_trace_threshold = <%= scope['::newrelic::agent
 ;          requesting explain plans is defined below.
 ;
 ;newrelic.transaction_tracer.explain_enabled = true
-<%- if scope['::newrelic::agent::php::newrelic_ini_transaction_tracer_explain_enabled'] -%>
+<%- if !scope['::newrelic::agent::php::newrelic_ini_transaction_tracer_explain_enabled'].nil? -%>
 newrelic.transaction_tracer.explain_enabled = <%= scope['::newrelic::agent::php::newrelic_ini_transaction_tracer_explain_enabled'] %>
 <%- end -%>
 
